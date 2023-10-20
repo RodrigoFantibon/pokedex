@@ -1,0 +1,64 @@
+.container-cards {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+  }
+  
+  .card {
+    display: flex;
+    max-width: 48%;
+    height: 120px;
+    border-radius: 8px;
+    background-color: #fff;
+    max-width: 100%;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .type-container {
+    display: block;
+    flex-direction: column; 
+    margin-bottom: 14px; 
+  }
+
+
+  .type-cicleDetails {
+    background-color: #bdbbbb;
+    color: #000000;
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  
+  ion-grid {
+    padding: 10px;
+  }
+  
+  .name-pokemon {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 4px;
+    margin: 0;
+  }
+  
+  .cod-pokemon,
+  .type-pokemon {
+    font-size: 12px;
+    padding: 5px;
+    margin: 0;
+  }
+  
+  .type-spacing {
+    margin-bottom: 8px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+  }
+  
+.img-pokemon{
+    margin-top: 25px; 
+}
+
