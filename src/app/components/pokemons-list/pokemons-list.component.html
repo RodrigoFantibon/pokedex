@@ -8,14 +8,14 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let pokemon of pokemonsList">
-        <div class="card">
+        <div class="card" [ngClass]="'typebackground-' + getPokemonType(pokemon)">
           <div class="container">
             <div class="content">
               <p class="cod-pokemon">#{{pokemon.details?.id}}</p>
               <p class="name-pokemon">{{pokemon.name}}</p>
               <p class="type-pokemon">
                 <span class="type-container" *ngFor="let type of pokemon.details?.types">
-                  <span class="type-cicleDetails">
+                  <span class="type-cicleDetails" [ngClass]="'type-' + type.type.name.toLowerCase()">
                     {{ type.type.name }}
                   </span>
                 </span>

@@ -2,63 +2,237 @@
     display: flex;
     gap: 16px;
     justify-content: space-between;
-  }
+}
   
-  .card {
-    display: flex;
-    max-width: 48%;
-    height: 120px;
-    border-radius: 8px;
-    background-color: #fff;
-    max-width: 100%;
-    color: black;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .type-container {
-    display: block;
-    flex-direction: column; 
-    margin-bottom: 14px; 
-  }
+ion-title{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.card {
+  display: flex;
+  max-width: 48%;
+  height: 120px;
+  border-radius: 8px;
+  background-color: #fff;
+  max-width: 100%;
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.type-container {
+  display: block;
+  flex-direction: column; 
+  margin-bottom: 14px; 
+}
 
 
-  .type-cicleDetails {
-    background-color: #bdbbbb;
-    color: #000000;
-    padding: 4px 8px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-  }
-  
-  ion-grid {
-    padding: 10px;
-  }
-  
-  .name-pokemon {
-    font-size: 18px;
-    font-weight: bold;
-    padding: 4px;
-    margin: 0;
-  }
-  
-  .cod-pokemon,
-  .type-pokemon {
-    font-size: 12px;
-    padding: 5px;
-    margin: 0;
-  }
-  
-  .type-spacing {
-    margin-bottom: 8px;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column; 
-    justify-content: space-between; 
-  }
-  
+.type-cicleDetails {
+  background-color: #bdbbbb;
+  color: #000000;
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+ion-grid {
+  padding: 10px;
+}
+
+.name-pokemon {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 4px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.cod-pokemon,
+.type-pokemon {
+  font-size: 12px;
+  padding: 5px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.type-spacing {
+  margin-bottom: 8px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between; 
+}
+
 .img-pokemon{
     margin-top: 25px; 
 }
 
+.img-pokebola{
+    max-width: 80px;
+    max-height: 80px;
+}
+
+// ------------------- colors types -------------------//
+
+.type-fire {
+  background-color: #FFC300; 
+}
+
+.type-water {
+  background-color: #73D0FF; 
+}
+
+.type-bug{
+  background-color: #ADDE68;
+}
+
+.type-pyschic{
+  background-color: #FF7A8A;
+}
+
+.type-fairy{
+  background-color: #FF99CC;
+}
+
+.type-dragon{
+  background-color: #4751BF;
+}
+
+.type-ice{
+  background-color: #61F2E6;
+}
+
+.type-rock{
+  background-color: #CC9E14;
+}
+
+.type-steel{
+  background-color: #99A9CC;
+}
+
+.type-flying{
+  background-color: #99A9CC;
+}
+
+.type-fighting{
+  background-color: #A8372F;
+}
+
+.type-ground{
+background-color: #B06523;
+}
+
+.type-normal{
+  background-color: #CBCCB8;
+}
+
+.type-poison{
+  background-color: #AC20D6;
+}
+
+.type-dark{
+  background-color: #5A5196;
+}
+
+.type-ghost{
+  background-color: #B242EB;
+}
+
+.type-eletric{
+  background-color: #F7D600;
+}
+
+.type-grass{
+  background-color: #8EE537;
+}
+
+.type-default {
+  background-color: #989898; 
+}
+
+
+
+//--------------- backgrounds fundo -----------------//
+
+.typebackground-fire {
+  background-color: #FF8800; 
+}
+
+.typebackground-water {
+  background-color: #409FFF; 
+}
+
+.typebackground-bug{
+  background-color: #75A632;
+}
+
+.typebackground-pyschic{
+  background-color: #ED555F;
+}
+
+.typebackground-fairy{
+  background-color: #F76AC8;
+}
+
+.typebackground-dragon{
+  background-color: #1D2E80;
+}
+
+.typebackground-ice{
+  background-color: #26BFB8;
+}
+
+.typebackground-rock{
+  background-color: #8C7023;
+}
+
+.typebackground-steel{
+  background-color: #798AAD;
+}
+
+.typebackground-flying{
+  background-color: #4B5EC9;
+}
+
+.typebackground-fighting{
+  background-color: #6B2316;
+}
+
+.typebackground-ground{
+background-color: #7A502B;
+}
+
+.typebackground-normal{
+  background-color: #B0B294;
+}
+
+.typebackground-poison{
+  background-color: #713C80;
+}
+
+.typebackground-dark{
+  background-color: #2A2547;
+}
+
+.typebackground-ghost{
+  background-color: #803BB2;
+}
+
+.typebackground-eletric{
+  background-color: #FAAF00;
+}
+
+.typebackground-grass{
+  background-color: #40BF26;
+}
+
+.typebackground-default {
+  background-color: #989898; 
+}

@@ -34,8 +34,8 @@ export class PokemonsListComponent  implements OnInit {
     console.log("pokemons", this.pokemonsList)
   }
 
-  
-  
-  
+  getPokemonType(pokemon: any): string {
+    return pokemon.details?.types[0]?.type?.name.toLowerCase() || 'default';
+  }
 
 }
