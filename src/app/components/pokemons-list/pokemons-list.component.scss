@@ -16,7 +16,7 @@ ion-title{
 .card {
   display: flex;
   max-width: 48%;
-  height: 120px;
+  height: 130px;
   border-radius: 8px;
   background-color: #fff;
   max-width: 100%;
@@ -79,6 +79,25 @@ ion-grid {
     max-height: 80px;
 }
 
+button {
+  background-color: black;
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 15px; 
+  font-size: 16px; 
+  cursor: pointer;
+  transition: background-color 0.3s; 
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+
+button[disabled] {
+  opacity: 0.6; 
+  cursor: not-allowed; 
+}
+
 // ------------------- colors types -------------------//
 
 .type-fire {
@@ -93,7 +112,7 @@ ion-grid {
   background-color: #ADDE68;
 }
 
-.type-pyschic{
+.type-psychic{
   background-color: #FF7A8A;
 }
 
@@ -145,7 +164,7 @@ background-color: #B06523;
   background-color: #B242EB;
 }
 
-.type-eletric{
+.type-electric{
   background-color: #F7D600;
 }
 
@@ -173,7 +192,7 @@ background-color: #B06523;
   background-color: #75A632;
 }
 
-.typebackground-pyschic{
+.typebackground-psychic{
   background-color: #ED555F;
 }
 
@@ -225,7 +244,7 @@ background-color: #7A502B;
   background-color: #803BB2;
 }
 
-.typebackground-eletric{
+.typebackground-electric{
   background-color: #FAAF00;
 }
 

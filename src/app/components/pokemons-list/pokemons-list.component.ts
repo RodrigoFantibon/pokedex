@@ -1,41 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 
-
 @Component({
   selector: 'app-pokemons-list',
   templateUrl: './pokemons-list.component.html',
   styleUrls: ['./pokemons-list.component.scss'],
 })
-export class PokemonsListComponent  implements OnInit {
-
+export class PokemonsListComponent implements OnInit {
   pokemonsList: any[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService) {}
 
   ngOnInit() {
-    this.getPokemons()
+    this.getPokemons();
   }
+
   getPokemons() {
-    this.pokemonService.getAllPokemon().subscribe((data) => {
+    const offset = (this.currentPage - 1) * this.itemsPerPage;
+    this.pokemonService.getAllPokemon(this.itemsPerPage, offset).subscribe((data) => {
       this.pokemonsList = data.results;
       this.loadPokemonDetails();
-      console.log(this.pokemonsList)
+      console.log(this.pokemonsList);
     });
   }
 
   loadPokemonDetails() {
     this.pokemonsList.forEach((pokemon, index) => {
-      const id = index + 1;
+      const id = index + 1 + (this.currentPage - 1) * this.itemsPerPage;
       this.pokemonService.getPokemonDetails(id).subscribe((details) => {
         pokemon.details = details;
       });
     });
-    console.log("pokemons", this.pokemonsList)
+    console.log("pokemons", this.pokemonsList);
+  }
+
+  nextPage() {
+    this.currentPage++;
+    this.getPokemons();
+  }
+
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.getPokemons();
+    }
   }
 
   getPokemonType(pokemon: any): string {
     return pokemon.details?.types[0]?.type?.name.toLowerCase() || 'default';
   }
-
 }
