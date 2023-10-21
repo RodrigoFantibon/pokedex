@@ -1,6 +1,6 @@
 <div class="backgraund-details">
     <div class="container-picture" [ngClass]="'typebackground-' + typeClass.toLowerCase()">
-        <img [src]="pokemonDetails?.sprites?.front_default" alt="Pokemon Image">
+        <img [src]="getGifOrImage()" alt="Pokemon Image">
     </div>
     <div class="name-pokemon">
         {{ pokemonDetails?.name }}

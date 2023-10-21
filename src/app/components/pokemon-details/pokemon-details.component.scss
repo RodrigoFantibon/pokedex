@@ -20,6 +20,7 @@
   font-weight: bold;
   text-align: center;
   margin-top: 10px;
+  font-family: 'Gabarito', sans-serif;
 }
 
 .types-pokemon{
@@ -62,7 +63,8 @@
   padding-top: 16px;
   font-weight: bold;
   text-align: center;
-  font-size: 18px;
+  font-size: 22px;
+  font-family: 'Gabarito', sans-serif;
 }
 
 // -------------- bars status ------------------
@@ -70,49 +72,48 @@
   display: flex;
   align-items: center;
   margin: 10px 30px;
+}
+.status-label {
+  width: 50px;
+  margin-right: 10px;
+  font-weight: bold;
+}
 
-  .status-label {
-    width: 50px;
-    font-weight: bold;
-    margin-right: 10px;
-  }
+.status-container {
+  display: flex;
+  flex-grow: 1;
+}
 
-  .status-container {
-    display: flex;
-    flex-grow: 1;
-  }
+.status-progress {
+  height: 15px;
+  width: 200px; 
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
 
-  .status-progress {
-    height: 15px;
-    width: 200px; 
-    border-radius: 12px;
-    background-color: #FFFFFF;
-    overflow: hidden;
-  }
+.fill-progress {
+  height: 100%;
+}
 
-  .fill-progress {
-    height: 100%;
-  }
-  
-  .hp-bar .fill-progress {
-    background-color: #FF0000; 
-  }
+.hp-bar .fill-progress {
+  background-color: #FF0000; 
+}
 
-  .atk-bar .fill-progress {
-    background-color: #FFA500; 
-  }
+.atk-bar .fill-progress {
+  background-color: #FFA500; 
+}
 
-  .def-bar .fill-progress {
-    background-color: #0000FF; 
-  }
+.def-bar .fill-progress {
+  background-color: #0000FF; 
+}
 
-  .spd-bar .fill-progress {
-    background-color: #808080; 
-  }
+.spd-bar .fill-progress {
+  background-color: #808080; 
+}
 
-  .exp-bar .fill-progress {
-    background-color: #228B22; 
-  }
+.exp-bar .fill-progress {
+  background-color: #228B22; 
 }
 
 .progressbar-pokemons {

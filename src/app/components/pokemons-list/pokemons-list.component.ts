@@ -56,4 +56,8 @@ export class PokemonsListComponent implements OnInit {
   goToPokemonDetails(pokemonId: number) {
     this.router.navigate(['/pokemon-details', pokemonId]);
   }
+
+  getGifOrImage(pokemon: any) {
+    return pokemon.details?.sprites?.versions['generation-v']['black-white']?.animated?.front_default ? pokemon.details?.sprites?.versions['generation-v']['black-white']?.animated?.front_default : pokemon.details?.sprites?.front_default;
+  }
 }

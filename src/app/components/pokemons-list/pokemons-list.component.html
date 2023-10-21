@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="container">
-            <img class="img-pokemon" [src]="pokemon.details?.sprites.front_default" alt="{{ pokemon.name }}">
+            <img class="img-pokemon" [src]="getGifOrImage(pokemon)" alt="{{ pokemon.name }}">
           </div>
         </div>
       </ion-col>
