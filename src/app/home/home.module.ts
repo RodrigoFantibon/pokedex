@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { PokemonsListComponent } from '../components/pokemons-list/pokemons-list.component';
+import { PokemonDetailsComponent } from '../components/pokemon-details/pokemon-details.component';
 
 
 @NgModule({
@@ -15,6 +16,6 @@ import { PokemonsListComponent } from '../components/pokemons-list/pokemons-list
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, PokemonsListComponent]
+  declarations: [HomePage, PokemonsListComponent, PokemonDetailsComponent]
 })
 export class HomePageModule {}

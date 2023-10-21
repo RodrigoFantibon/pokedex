@@ -1,0 +1,81 @@
+<div class="backgraund-details">
+    <div class="container-picture" [ngClass]="'typebackground-' + typeClass.toLowerCase()">
+        <img [src]="pokemonDetails?.sprites?.front_default" alt="Pokemon Image">
+    </div>
+    <div class="name-pokemon">
+        {{ pokemonDetails?.name }}
+    </div>
+    <div class="types-pokemon">
+        <span class="type-cicleDetails" *ngFor="let type of pokemonDetails?.types" [ngClass]="'type-' + type.type.name.toLowerCase()">
+            {{ type.type.name }}
+        </span>
+    </div>
+    <div class="weights-pokemons">
+        <div class="centralize-title-weigth">
+            <p class="title-weight">{{ pokemonDetails?.weight / 10 }} KG</p>
+            <p class="title-weight">{{ pokemonDetails?.height / 10 }} M</p>
+        </div>
+        <div class="centralize-title-weigth">
+            <p class="weight-height">weight</p>
+            <p class="weight-height">height</p>
+        </div>
+    </div>
+    <div class="progressbar-pokemons">
+        <p class="title-status">Status do Pokémon</p>
+        
+        <div class="status-bar">
+            <div class="status-label">HP</div>
+            <div class="status-container hp-bar">
+                <div class="status-progress">
+                    <div class="fill-progress" [style.width]="(pokemonDetails?.stats[0]?.base_stat / 200) * 100 + '%'">
+                        <span class="text-atributos"> {{ pokemonDetails?.stats[0]?.base_stat }} / 200 </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="status-bar">
+            <div class="status-label">ATK</div>
+            <div class="status-container atk-bar">
+                <div class="status-progress">
+                    <div class="fill-progress" [style.width]="(pokemonDetails?.stats[1]?.base_stat / 200) * 100 + '%'">
+                       <span class="text-atributos"> {{ pokemonDetails?.stats[1]?.base_stat }} / 200 </span> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="status-bar">
+            <div class="status-label">DEF</div>
+            <div class="status-container def-bar">
+                <div class="status-progress">
+                    <div class="fill-progress" [style.width]="(pokemonDetails?.stats[2]?.base_stat / 250) * 100 + '%'">
+                        <span class="text-atributos"> {{ pokemonDetails?.stats[2]?.base_stat }} / 250 </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="status-bar">
+            <div class="status-label">SPD</div>
+            <div class="status-container spd-bar">
+                <div class="status-progress">
+                    <div class="fill-progress" [style.width]="(pokemonDetails?.stats[5]?.base_stat / 200) * 100 + '%'">
+                       <span class="text-atributos">  {{ pokemonDetails?.stats[5]?.base_stat }} / 300 </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="status-bar">
+            <div class="status-label">EXP</div>
+            <div class="status-container exp-bar">
+                <div class="status-progress">
+                    <div class="fill-progress" [style.width]="(pokemonDetails?.base_experience / 380) * 100 + '%'">
+                       <span class="text-atributos"> {{ pokemonDetails?.base_experience }} / 380 </span> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
