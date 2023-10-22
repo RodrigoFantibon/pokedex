@@ -25,9 +25,10 @@
 
 .types-pokemon{
   display: flex;
-  flex-direction: row;
+  flex-wrap: nowrap;  
   justify-content: center;
   margin-top: 10px;
+
 }
 
 .type-cicleDetails{
@@ -37,8 +38,8 @@
   border-radius: 8px;
   margin-bottom: 8px;
   font-weight: bold;
-  margin-left: 70px;
-  margin-right: 70px;
+  margin-right: 50px;
+  margin-left: 65px;
 }
 
 .centralize-title-weigth{
@@ -46,7 +47,7 @@
   flex-direction: row;
   justify-content: space-between;
   margin-left: 70px;
-  margin-right: 70px;
+  margin-right: 100px;
 }
 
 .title-weight {
@@ -67,11 +68,19 @@
   font-family: 'Gabarito', sans-serif;
 }
 
+.pokemon-image {
+  max-width: 150px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 90px;
+
+}
+
 // -------------- bars status ------------------
 .status-bar {
   display: flex;
   align-items: center;
-  margin: 10px 30px;
+  margin: 10px 50px;
 }
 .status-label {
   width: 50px;
@@ -126,6 +135,44 @@
   font-size: 12px;
   margin-left: 5px;
 }
+
+.arrow-back {
+  position: relative;
+
+  .back-button {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    ion-icon {
+      color: #fff;
+      font-size: 20px; 
+      margin-right: 5px; 
+    }
+
+    .text {
+      color: #fff; 
+      font-size: 16px;
+      margin-right: 210px;
+    }
+    .pokemon-number {
+      color: #fff;
+      font-size: 16px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
 
 // ---------- colors type pokemons ----------
 

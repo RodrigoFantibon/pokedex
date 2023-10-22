@@ -11,7 +11,7 @@
         <div class="card" [ngClass]="'typebackground-' + getPokemonType(pokemon)" (click)="goToPokemonDetails(pokemon.details?.id)">
           <div class="container">
             <div class="content">
-              <p class="cod-pokemon">#{{pokemon.details?.id}}</p>
+              <p class="cod-pokemon">#{{pokemon.details?.id.toString().padStart(3, '0') }}</p>
               <p class="name-pokemon">{{pokemon.name}}</p>
               <p class="type-pokemon">
                 <span class="type-container" *ngFor="let type of pokemon.details?.types">

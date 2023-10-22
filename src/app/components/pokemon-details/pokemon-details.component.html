@@ -1,81 +1,111 @@
-<div class="backgraund-details">
-    <div class="container-picture" [ngClass]="'typebackground-' + typeClass.toLowerCase()">
-        <img [src]="getGifOrImage()" alt="Pokemon Image">
-    </div>
-    <div class="name-pokemon">
-        {{ pokemonDetails?.name }}
-    </div>
-    <div class="types-pokemon">
-        <span class="type-cicleDetails" *ngFor="let type of pokemonDetails?.types" [ngClass]="'type-' + type.type.name.toLowerCase()">
-            {{ type.type.name }}
-        </span>
-    </div>
-    <div class="weights-pokemons">
-        <div class="centralize-title-weigth">
-            <p class="title-weight">{{ pokemonDetails?.weight / 10 }} KG</p>
-            <p class="title-weight">{{ pokemonDetails?.height / 10 }} M</p>
-        </div>
-        <div class="centralize-title-weigth">
-            <p class="weight-height">weight</p>
-            <p class="weight-height">height</p>
-        </div>
-    </div>
-    <div class="progressbar-pokemons">
-        <p class="title-status">Status do Pokémon</p>
-        
-        <div class="status-bar">
-            <div class="status-label">HP</div>
-            <div class="status-container hp-bar">
-                <div class="status-progress">
-                    <div class="fill-progress" [style.width]="(pokemonDetails?.stats[0]?.base_stat / 200) * 100 + '%'">
-                        <span class="text-atributos"> {{ pokemonDetails?.stats[0]?.base_stat }} / 200 </span>
+<ion-content>
+    <ion-grid class="backgraund-details">
+      <ion-row>
+        <ion-col>
+          <ion-row class="container-picture" [ngClass]="'typebackground-' + typeClass.toLowerCase()">
+            <ion-col class="arrow-back">
+              <button class="back-button" (click)="backToMenu()">
+                <ion-icon name="arrow-back"></ion-icon>
+                <span class="text">Voltar</span>
+                <span class="pokemon-number">#{{ pokemonDetails?.id.toString().padStart(3, '0') }}</span>
+              </button>
+              <ion-img [src]="getGifOrImage()" alt="Pokemon Image" class="pokemon-image"></ion-img>
+            </ion-col>
+          </ion-row>
+  
+          <ion-row class="name-pokemon">
+            <ion-col>
+              {{ pokemonDetails?.name }}
+            </ion-col>
+          </ion-row>
+  
+          <ion-row class="types-pokemon">
+            <ion-col>
+              <ion-label class="type-cicleDetails" *ngFor="let type of pokemonDetails?.types" [ngClass]="'type-' + type.type.name.toLowerCase()">
+                {{ type.type.name }}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+  
+        <ion-col>
+            <ion-row class="weights-pokemons">
+                <ion-col class="centralize-title-weigth">
+                <ion-label class="title-weight">{{ pokemonDetails?.weight / 10 }} KG</ion-label>
+                <ion-label class="title-weight">{{ pokemonDetails?.height / 10 }} M</ion-label>
+                </ion-col>
+                <ion-col class="centralize-title-weigth">
+                <ion-label class="weight-height">weight</ion-label>
+                <ion-label class="weight-height">height</ion-label>
+                </ion-col>
+            </ion-row>
+  
+            <ion-row class="progressbar-pokemons">
+                <ion-col>
+                    <p class="title-status">Status do Pokémon</p>
+                <ion-row class="status-bar">
+                    <ion-col class="status-label">HP</ion-col>
+                    <ion-col class="status-container hp-bar">
+                    <div class="status-progress">
+                        <div class="fill-progress" [style.width]="(pokemonDetails?.stats[0]?.base_stat / 200) * 100 + '%'">
+                        <span class="text-atributos">{{ pokemonDetails?.stats[0]?.base_stat }} / 200</span>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    
-        <div class="status-bar">
-            <div class="status-label">ATK</div>
-            <div class="status-container atk-bar">
-                <div class="status-progress">
+                    </ion-col>
+              </ion-row>
+  
+              <!-- Status ATK -->
+              <ion-row class="status-bar">
+                <ion-col class="status-label">ATK</ion-col>
+                <ion-col class="status-container atk-bar">
+                  <div class="status-progress">
                     <div class="fill-progress" [style.width]="(pokemonDetails?.stats[1]?.base_stat / 200) * 100 + '%'">
-                       <span class="text-atributos"> {{ pokemonDetails?.stats[1]?.base_stat }} / 200 </span> 
+                      <span class="text-atributos">{{ pokemonDetails?.stats[1]?.base_stat }} / 200</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    
-        <div class="status-bar">
-            <div class="status-label">DEF</div>
-            <div class="status-container def-bar">
-                <div class="status-progress">
+                  </div>
+                </ion-col>
+              </ion-row>
+  
+              <!-- Status DEF -->
+              <ion-row class="status-bar">
+                <ion-col class="status-label">DEF</ion-col>
+                <ion-col class="status-container def-bar">
+                  <div class="status-progress">
                     <div class="fill-progress" [style.width]="(pokemonDetails?.stats[2]?.base_stat / 250) * 100 + '%'">
-                        <span class="text-atributos"> {{ pokemonDetails?.stats[2]?.base_stat }} / 250 </span>
+                      <span class="text-atributos">{{ pokemonDetails?.stats[2]?.base_stat }} / 250</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    
-        <div class="status-bar">
-            <div class="status-label">SPD</div>
-            <div class="status-container spd-bar">
-                <div class="status-progress">
+                  </div>
+                </ion-col>
+              </ion-row>
+  
+              <!-- Status SPD -->
+              <ion-row class="status-bar">
+                <ion-col class="status-label">SPD</ion-col>
+                <ion-col class="status-container spd-bar">
+                  <div class="status-progress">
                     <div class="fill-progress" [style.width]="(pokemonDetails?.stats[5]?.base_stat / 200) * 100 + '%'">
-                       <span class="text-atributos">  {{ pokemonDetails?.stats[5]?.base_stat }} / 300 </span>
+                      <span class="text-atributos">{{ pokemonDetails?.stats[5]?.base_stat }} / 300</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    
-        <div class="status-bar">
-            <div class="status-label">EXP</div>
-            <div class="status-container exp-bar">
-                <div class="status-progress">
+                  </div>
+                </ion-col>
+              </ion-row>
+  
+              <!-- Status EXP -->
+              <ion-row class="status-bar">
+                <ion-col class="status-label">EXP</ion-col>
+                <ion-col class="status-container exp-bar">
+                  <div class="status-progress">
                     <div class="fill-progress" [style.width]="(pokemonDetails?.base_experience / 380) * 100 + '%'">
-                       <span class="text-atributos"> {{ pokemonDetails?.base_experience }} / 380 </span> 
+                      <span class="text-atributos">{{ pokemonDetails?.base_experience }} / 380</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                  </div>
+                </ion-col>
+              </ion-row>
+  
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+  
+    </ion-grid>
+  </ion-content>

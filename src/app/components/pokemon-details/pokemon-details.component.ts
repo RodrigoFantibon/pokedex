@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from '../../services/pokemon.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -14,7 +15,7 @@ export class PokemonDetailsComponent  implements OnInit {
   typeClass: string = '';
   gifOrPicture: string = '';
 
-  constructor(private route: ActivatedRoute, private pokemonService: PokemonService) {}
+  constructor(private route: ActivatedRoute, private pokemonService: PokemonService, private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -42,6 +43,9 @@ export class PokemonDetailsComponent  implements OnInit {
   return this.gifOrPicture;
   }
 
+  backToMenu() {
+    this.router.navigate(['/']);
+  }
 
 
 }
