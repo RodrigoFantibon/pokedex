@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { Router } from '@angular/router';
+import { FavoritePokemonService } from '../../services/favorite-pokemons/favorite-pokemon.service';
 
 @Component({
   selector: 'app-pokemons-list',
@@ -12,7 +13,11 @@ export class PokemonsListComponent implements OnInit {
   currentPage: number = 1;
   itemsPerPage: number = 10;
 
-  constructor(private pokemonService: PokemonService, private router: Router) {}
+  constructor(
+    private pokemonService: PokemonService,
+    private favoriteService: FavoritePokemonService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.getPokemons();
@@ -23,7 +28,6 @@ export class PokemonsListComponent implements OnInit {
     this.pokemonService.getAllPokemon(this.itemsPerPage, offset).subscribe((data) => {
       this.pokemonsList = data.results;
       this.loadPokemonDetails();
-      console.log(this.pokemonsList);
     });
   }
 
@@ -34,7 +38,6 @@ export class PokemonsListComponent implements OnInit {
         pokemon.details = details;
       });
     });
-    console.log("pokemons", this.pokemonsList);
   }
 
   nextPage() {
@@ -53,11 +56,34 @@ export class PokemonsListComponent implements OnInit {
     return pokemon.details?.types[0]?.type?.name.toLowerCase() || 'default';
   }
 
+  toggleFavorite(pokemon: any) {
+    const id = pokemon.details?.id;
+    console.log("caiu", pokemon)
+    if (this.favoriteService.isFavorite(id)) {
+      this.favoriteService.removeFromFavorites(id);
+      // this.goToFavoritesPage();
+    } else {
+      this.goToFavoritesPage();
+      this.favoriteService.addToFavorites(id);
+    }
+  }
+
+  goToFavoritesPage() {
+    this.router.navigate(['/favorite-pokemon-list']); 
+  }
+
+  isFavorite(pokemon: any): boolean {
+    const id = pokemon.details?.id;
+    return this.favoriteService.isFavorite(id);
+  }
+
   goToPokemonDetails(pokemonId: number) {
     this.router.navigate(['/pokemon-details', pokemonId]);
   }
 
   getGifOrImage(pokemon: any) {
-    return pokemon.details?.sprites?.versions['generation-v']['black-white']?.animated?.front_default ? pokemon.details?.sprites?.versions['generation-v']['black-white']?.animated?.front_default : pokemon.details?.sprites?.front_default;
+    return pokemon.details?.sprites?.versions['generation-v']['black-white']?.animated?.front_default
+      ? pokemon.details?.sprites?.versions['generation-v']['black-white']?.animated?.front_default
+      : pokemon.details?.sprites?.front_default;
   }
 }

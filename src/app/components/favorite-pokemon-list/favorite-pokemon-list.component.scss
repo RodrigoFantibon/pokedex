@@ -109,7 +109,7 @@ button[disabled] {
   padding: 10px;
 }
 
-.buttons-next-back{
+ion-button {
   --background: #29292e;
   --background-hover: #9ce0be;
   --background-activated: #88f4be;
@@ -129,6 +129,7 @@ button[disabled] {
   --padding-top: 10px;
   --padding-bottom: 10px;
 }
+
 
 // ------------------- colors types -------------------//
 

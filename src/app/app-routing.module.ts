@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
+import { FavoritePokemonListComponent } from './components/favorite-pokemon-list/favorite-pokemon-list.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'pokemon-details/:id',
     component: PokemonDetailsComponent,
+  },
+  {
+    path: 'favorite-pokemon-list',
+    component: FavoritePokemonListComponent,
   },
 ];
 
