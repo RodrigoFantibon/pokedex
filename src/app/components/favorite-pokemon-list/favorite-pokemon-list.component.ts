@@ -3,6 +3,7 @@ import { forkJoin } from 'rxjs';
 import { FavoritePokemonService } from '../../services/favorite-pokemons/favorite-pokemon.service';
 import { PokemonService } from '../../services/pokemon.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-favorite-pokemon-list',
@@ -17,8 +18,14 @@ export class FavoritePokemonListComponent implements OnInit {
   constructor(
     private favoriteService: FavoritePokemonService,
     private pokemonService: PokemonService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private toastr: ToastrService
+  ) {
+
+    this.favoriteService.favoritesChanged$.subscribe(() => {
+      this.getFavoritePokemons();
+    });
+  }
 
   ngOnInit() {
     this.getFavoritePokemons();
@@ -40,6 +47,7 @@ export class FavoritePokemonListComponent implements OnInit {
           id: detail.id,
           name: detail.name || 'Unknown',
           details: detail,
+          isFavorite: this.favoriteService.isFavorite(detail.id)
         }));
       },
       (error) => {
@@ -56,9 +64,16 @@ export class FavoritePokemonListComponent implements OnInit {
     const id = pokemon.details?.id;
     if (this.favoriteService.isFavorite(id)) {
       this.favoriteService.removeFromFavorites(id);
+      this.toastr.success('Removido dos Favoritos!', 'Sucesso', {
+        timeOut: 3000, 
+        positionClass: 'toast-bottom-center', 
+      });
+      // this.getFavoritePokemons();
     } else {
       this.favoriteService.addToFavorites(id);
+      // this.getFavoritePokemons();
     }
+    this.getFavoritePokemons();
   }
 
   goToPokemonDetails(pokemonId: number) {
@@ -69,11 +84,6 @@ export class FavoritePokemonListComponent implements OnInit {
     return pokemon.details?.sprites?.versions['generation-v']['black-white']?.animated?.front_default
       ? pokemon.details?.sprites?.versions['generation-v']['black-white']?.animated?.front_default
       : pokemon.details?.sprites?.front_default;
-  }
-
-  destructSession() {
-    localStorage.removeItem('session');
-    console.log('Sessão destruída')
   }
 
   nextPage() {
@@ -91,6 +101,4 @@ export class FavoritePokemonListComponent implements OnInit {
   backToMenu() {
     this.router.navigate(['/']);
   }
-
-  
 }

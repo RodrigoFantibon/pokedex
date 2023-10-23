@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { Router } from '@angular/router';
 import { FavoritePokemonService } from '../../services/favorite-pokemons/favorite-pokemon.service';
+import { switchMap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-pokemons-list',
@@ -11,13 +13,18 @@ import { FavoritePokemonService } from '../../services/favorite-pokemons/favorit
 export class PokemonsListComponent implements OnInit {
   pokemonsList: any[] = [];
   currentPage: number = 1;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 6;
 
   constructor(
     private pokemonService: PokemonService,
     private favoriteService: FavoritePokemonService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private toastr: ToastrService
+  ) {
+    this.favoriteService.favoritesChanged$.subscribe(() => {
+      this.getPokemons();
+    });
+  }
 
   ngOnInit() {
     this.getPokemons();
@@ -36,6 +43,7 @@ export class PokemonsListComponent implements OnInit {
       const id = index + 1 + (this.currentPage - 1) * this.itemsPerPage;
       this.pokemonService.getPokemonDetails(id).subscribe((details) => {
         pokemon.details = details;
+        pokemon.isFavorite = this.favoriteService.isFavorite(id);
       });
     });
   }
@@ -58,23 +66,28 @@ export class PokemonsListComponent implements OnInit {
 
   toggleFavorite(pokemon: any) {
     const id = pokemon.details?.id;
-    console.log("caiu", pokemon)
+  
     if (this.favoriteService.isFavorite(id)) {
       this.favoriteService.removeFromFavorites(id);
-      // this.goToFavoritesPage();
+      this.toastr.success('Removido dos Favoritos!', 'Sucesso', {
+        timeOut: 3000,
+        positionClass: 'toast-bottom-center',
+      });
     } else {
-      this.goToFavoritesPage();
       this.favoriteService.addToFavorites(id);
+      this.goToFavoritesPage();
     }
+    pokemon.isFavorite = this.favoriteService.isFavorite(id); 
   }
 
   goToFavoritesPage() {
-    this.router.navigate(['/favorite-pokemon-list']); 
+    return this.router.navigate(['/favorite-pokemon-list']);
   }
 
   isFavorite(pokemon: any): boolean {
     const id = pokemon.details?.id;
     return this.favoriteService.isFavorite(id);
+   
   }
 
   goToPokemonDetails(pokemonId: number) {

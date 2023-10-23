@@ -153,7 +153,7 @@
    */
 
   .ios body {
-    --ion-background-color: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8));
+    --ion-background-color: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7db9e8), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8));
     --ion-background-color-rgb: 0,0,0;
 
     --ion-text-color: #ffffff;
@@ -242,3 +242,4 @@ html {
    */
   --ion-dynamic-font: var(--ion-default-dynamic-font);
 }
+

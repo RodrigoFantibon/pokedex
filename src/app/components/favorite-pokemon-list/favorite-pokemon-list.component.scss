@@ -75,10 +75,6 @@ ion-grid {
     margin-left: 15px; 
 }
 
-.img-pokebola{
-    max-width: 80px;
-    max-height: 80px;
-}
 
 button {
   background-color: black;
@@ -104,7 +100,7 @@ button[disabled] {
   top: 5px;
   right: 5px;
   font-size: 24px;
-  color: #ff4500; /* Ajuste a cor conforme necessário */
+  color: #ff4500; 
   cursor: pointer;
   padding: 10px;
 }
