@@ -13,6 +13,25 @@ ion-title{
   font-weight: bold;
 }
 
+.none-pokemons-liked{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.backToMenu{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+
+.buttons-control-page{
+  display: flex;
+  justify-content: space-around;
+}
 .card {
   display: flex;
   max-width: 48%;

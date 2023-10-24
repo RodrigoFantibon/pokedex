@@ -33,14 +33,29 @@
         </ion-icon>
       </ion-col>
     </ion-row>
-    <ion-row class="margin-buttons">
-      <ion-col size="4">
+
+    <ion-grid class="test" *ngIf="noLikedPokemon">
+      <ion-row class="ion-text-center">
+        <ion-col size="12">
+          <p class="none-pokemons-liked">Nenhum Pokémon curtido ainda</p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-text-center">
+        <ion-col size="12">
+          <ion-button (click)="backToMenu()">Retornar ao menu</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-grid>
+  <ion-grid class="buttons-control-page">
+    <ion-row *ngIf="!noLikedPokemon">
+      <ion-col>
         <ion-button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</ion-button>
       </ion-col>
-      <ion-col size="4">
-        <ion-button class="" (click)="backToMenu()">menu</ion-button>
+      <ion-col>
+        <ion-button (click)="backToMenu()">menu</ion-button>
       </ion-col>
-      <ion-col size="4">
+      <ion-col>
         <ion-button (click)="nextPage()">Próxima</ion-button>
       </ion-col>
     </ion-row>

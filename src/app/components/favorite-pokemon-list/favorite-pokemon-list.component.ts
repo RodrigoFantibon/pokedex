@@ -14,6 +14,7 @@ export class FavoritePokemonListComponent implements OnInit {
   favoritePokemons: any[] = [];
   itemsPerPage: number = 6;
   currentPage: number = 1; 
+  noLikedPokemon: boolean = true;
 
   constructor(
     private favoriteService: FavoritePokemonService,
@@ -58,6 +59,7 @@ export class FavoritePokemonListComponent implements OnInit {
           details: detail,
           isFavorite: this.favoriteService.isFavorite(detail.id)
         }));
+        this.favoritePokemons.length === 0 ? this.noLikedPokemon = true : this.noLikedPokemon = false;
       },
       (error) => {
         console.error('Erro ao obter detalhes dos Pokémon favoritos:', error);
