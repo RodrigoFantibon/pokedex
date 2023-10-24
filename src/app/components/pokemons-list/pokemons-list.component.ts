@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { Router } from '@angular/router';
 import { FavoritePokemonService } from '../../services/favorite-pokemons/favorite-pokemon.service';
@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class PokemonsListComponent implements OnInit {
   pokemonsList: any[] = [];
   currentPage: number = 1;
-  itemsPerPage: number = 6;
+  itemsPerPage: number = 10;
 
   constructor(
     private pokemonService: PokemonService,
@@ -27,6 +27,15 @@ export class PokemonsListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.onResize();
+    this.getPokemons();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?: Event) {
+    //altura da tela
+    const height = window.innerHeight;
+    this.itemsPerPage = height > 768 ? 10 : 6;
     this.getPokemons();
   }
 
@@ -75,7 +84,7 @@ export class PokemonsListComponent implements OnInit {
       });
     } else {
       this.favoriteService.addToFavorites(id);
-      this.goToFavoritesPage();
+      // this.goToFavoritesPage();
     }
     pokemon.isFavorite = this.favoriteService.isFavorite(id); 
   }

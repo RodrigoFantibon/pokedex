@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { FavoritePokemonService } from '../../services/favorite-pokemons/favorite-pokemon.service';
 import { PokemonService } from '../../services/pokemon.service';
@@ -30,6 +30,15 @@ export class FavoritePokemonListComponent implements OnInit {
   ngOnInit() {
     this.getFavoritePokemons();
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?: Event) {
+    //altura da tela
+    const height = window.innerHeight;
+    this.itemsPerPage = height > 768 ? 10 : 6;
+    this.getFavoritePokemons();
+  }
+
 
   getFavoritePokemons() {
     const favoriteIds = this.favoriteService.getFavorites();
