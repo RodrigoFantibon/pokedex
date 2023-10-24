@@ -15,6 +15,7 @@ export class FavoritePokemonListComponent implements OnInit {
   itemsPerPage: number = 6;
   currentPage: number = 1; 
   noLikedPokemon: boolean = true;
+  hasNextPage: boolean = false;
 
   constructor(
     private favoriteService: FavoritePokemonService,
@@ -35,7 +36,13 @@ export class FavoritePokemonListComponent implements OnInit {
   onResize(event?: Event) {
     //altura da tela
     const height = window.innerHeight;
+    const width = window.innerWidth;
+
+    if (width > 768){
+      this.itemsPerPage = 4;
+    }else{
     this.itemsPerPage = height > 768 ? 10 : 6;
+    }
     this.getFavoritePokemons();
   }
 
@@ -58,6 +65,7 @@ export class FavoritePokemonListComponent implements OnInit {
           details: detail,
           isFavorite: this.favoriteService.isFavorite(detail.id)
         }));
+        this.hasNextPage = favoriteIds.length > endIndex;
         this.favoritePokemons.length === 0 ? this.noLikedPokemon = true : this.noLikedPokemon = false;
       },
       (error) => {

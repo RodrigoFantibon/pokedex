@@ -50,6 +50,6 @@
   <div *ngIf="!noLikedPokemon" class="buttons-control-page">
     <ion-button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</ion-button>
     <ion-button (click)="backToMenu()">menu</ion-button>
-    <ion-button (click)="nextPage()">Próxima</ion-button>
+    <ion-button (click)="nextPage()" [disabled]="!hasNextPage">Próxima</ion-button>
   </div>
 </ion-content>
