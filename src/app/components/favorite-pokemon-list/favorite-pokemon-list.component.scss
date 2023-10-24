@@ -27,12 +27,30 @@ ion-title{
   justify-content: center;
 }
 
+.img-pokebola-title {
+  max-width: 30px;
+  vertical-align: middle;
+}
+
 
 .buttons-control-page{
   display: flex;
   justify-content: space-between;
   padding: 0 16px;
 }
+
+.color-page{
+  width: 100%;
+  height: 100%;
+  background-color: #8484d6;
+}
+
+.style-title{
+  background-color: #8484d6;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
 
 .card {
   display: flex;
