@@ -21,21 +21,28 @@ export class PokemonsListComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService
   ) {
-    this.favoriteService.favoritesChanged$.subscribe(() => {
-      this.getPokemons();
-    });
   }
 
   ngOnInit() {
+    // this.onResize();
+    // this.getPokemons();
+  }
+
+  ionViewWillEnter() {
     this.onResize();
-    this.getPokemons();
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event?: Event) {
     //altura da tela
     const height = window.innerHeight;
+    const width = window.innerWidth;
+
+    if (width > 768){
+      this.itemsPerPage = 4;
+    }else{
     this.itemsPerPage = height > 768 ? 10 : 6;
+    }
     this.getPokemons();
   }
 

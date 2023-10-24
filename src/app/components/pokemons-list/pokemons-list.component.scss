@@ -71,8 +71,11 @@ ion-grid {
 }
 
 .img-pokemon{
-    margin-top: 45px;
-    margin-left: 15px; 
+  margin-top: 45px;
+  margin-left: 15px; 
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 
@@ -142,8 +145,9 @@ button[disabled] {
 
 .buttons-position-page{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 16px;
 }
 
 

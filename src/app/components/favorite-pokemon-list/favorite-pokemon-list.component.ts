@@ -21,15 +21,14 @@ export class FavoritePokemonListComponent implements OnInit {
     private pokemonService: PokemonService,
     private router: Router,
     private toastr: ToastrService
-  ) {
-
-    this.favoriteService.favoritesChanged$.subscribe(() => {
-      this.getFavoritePokemons();
-    });
-  }
+  ) {}
 
   ngOnInit() {
-    this.getFavoritePokemons();
+    // this.onResize();
+  }
+
+  ionViewWillEnter() {
+    this.onResize();
   }
 
   @HostListener('window:resize', ['$event'])

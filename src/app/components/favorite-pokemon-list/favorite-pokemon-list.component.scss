@@ -30,8 +30,10 @@ ion-title{
 
 .buttons-control-page{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 16px;
 }
+
 .card {
   display: flex;
   max-width: 48%;
