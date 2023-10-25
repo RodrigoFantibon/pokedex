@@ -28,19 +28,18 @@ export class PokemonDetailsComponent  implements OnInit {
     this.pokemonService.getPokemonDetails(this.pokemonId).subscribe(details => {
       this.pokemonDetails = details;
       this.setTypeClass();
-      console.log("detalhes do pokemon", this.pokemonDetails)
       this.getGifOrImage();
     });
   }
   setTypeClass() {
     this.typeClass = this.pokemonDetails?.types[0]?.type?.name || 'type-default';
-    console.log("tipo do pokemon", this.typeClass)
   }
 
   getGifOrImage() {
-  this.gifOrPicture = this.pokemonDetails?.sprites?.versions['generation-v']['black-white']?.animated?.front_default ? this.pokemonDetails?.sprites?.versions['generation-v']['black-white']?.animated?.front_default : this.pokemonDetails?.sprites?.front_default;
-  console.log("gif ou imagem", this.gifOrPicture)
-  return this.gifOrPicture;
+    this.gifOrPicture = this.pokemonDetails?.sprites?.versions['generation-v']['black-white']?.animated?.front_default 
+    ? this.pokemonDetails?.sprites?.versions['generation-v']['black-white']?.animated?.front_default 
+    : this.pokemonDetails?.sprites?.front_default;
+    return this.gifOrPicture;
   }
 
   backToMenu() {

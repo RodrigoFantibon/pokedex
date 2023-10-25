@@ -97,13 +97,13 @@ justify-content: center;
   display: flex;
   justify-content: center;
   ion-img {
-    max-width: 150px;
-    height: 150px;
-    justify-content: center;
-    align-items: center;
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
+  max-width: 150px;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
   }
 }
 
@@ -121,7 +121,6 @@ justify-content: center;
   width: 100%;
 
   .status-label {
-
     margin-right: 5px;
     font-weight: bold;
     font-size: 18px;

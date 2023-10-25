@@ -17,8 +17,23 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [AppComponent, PokemonsListComponent, PokemonDetailsComponent, FavoritePokemonListComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, BrowserAnimationsModule, ToastrModule.forRoot(), CommonModule, FormsModule],
+  declarations: [
+    AppComponent, 
+    PokemonsListComponent, 
+    PokemonDetailsComponent, 
+    FavoritePokemonListComponent
+  ],
+
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    HttpClientModule, 
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(),
+    CommonModule,
+    FormsModule
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
