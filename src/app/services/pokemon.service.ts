@@ -18,5 +18,8 @@ export class PokemonService {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
   
+  getAllPokemonWithoutPagination(): Observable<any> {
+    return this.http.get(`${this.apiUrl}?limit=1000`); // Ajuste o limite conforme necessário
+  }
   
 }
