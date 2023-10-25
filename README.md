@@ -27,14 +27,13 @@ Para melhor experiencia de simulação de uma aplicação mobile, abra a ferrame
 
 
 
-##Gif Demonstração do Projeto
+## Gif Demonstração do Projeto
+![pokedex](https://github.com/RodrigoFantibon/pokedex/assets/88854115/9b58fcec-734d-4acf-b10c-8727fdb456e4)
 
-- ![pokedex](https://github.com/RodrigoFantibon/pokedex/assets/88854115/4c189dcf-5282-4116-a4e3-8cbb73d98275)
 
+## Video Demonstração do Projeto
+https://github.com/RodrigoFantibon/pokedex/assets/88854115/a169a6c3-609d-4413-8c77-5b327a7b14d4
 
-##Video Demonstração do Projeto
-
-- https://github.com/RodrigoFantibon/pokedex/assets/88854115/a6170084-e78c-4b2c-ba08-0c053356cb08
 
 
 ##Autor
