@@ -36,5 +36,5 @@ https://github.com/RodrigoFantibon/pokedex/assets/88854115/a169a6c3-609d-4413-8c
 
 
 
-##Autor
+## Autor
 Rodrigo Fantibon
